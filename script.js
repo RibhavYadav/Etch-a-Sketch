@@ -16,6 +16,7 @@ function colorBox(e){
 }
 
 canvas.addEventListener('mousedown', (e) => {
+    e.preventDefault();
     isDrawing = true;
     colorBox(e);
 });
