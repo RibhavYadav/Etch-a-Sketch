@@ -27,3 +27,13 @@ canvas.addEventListener('mousemove', (e) => {
 canvas.addEventListener('mouseup', (e) => {
     isDrawing = false;
 })
+
+// Event listener to remove all colours from the boxes
+const reset = document.getElementById("reset-btn")
+const boxes = document.getElementsByClassName('box');
+reset.addEventListener('click', (e) => {
+    Array.from(boxes).forEach(box => {
+        box.style.backgroundColor = "white";
+    })
+})
+
