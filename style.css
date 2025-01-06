@@ -1,0 +1,25 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height:256px;
+    width: 256px;
+    border-radius: 2px;
+    border: 3px solid black;
+}
+
+.box {
+    height: 16px;
+    width: 16px;
+    background: whitesmoke;
+}
