@@ -76,7 +76,8 @@ body {
     transition: 200ms;
 }
 
-.number-of-boxes .grid{
+.number-of-boxes .grid {
+    text-align: center;
     font-size: 15px;
     width: 120px;
 }
@@ -103,6 +104,10 @@ button:active {
 }
 
 /* Canvas and Boxes */
+:root {
+    --num-boxes: 16;
+}
+
 .canvas {
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +120,6 @@ button:active {
 }
 
 .box {
-    flex: 0 0 calc(100% / 16);
+    flex: 0 0 calc(100% / var(--num-boxes));
     aspect-ratio: 1;
 }
