@@ -44,9 +44,9 @@ updateGridButton.addEventListener("click", () => {
 });
 
 // Add event listeners to color the boxes
+let isDrawing = false;
+let randomColor = false;
 function addDrawingEventListeners() {
-    let isDrawing = false;
-
     function colorBox(e) {
         if (isDrawing && e.target.classList.contains('box')) {
             e.target.style.backgroundColor = 'blue';
