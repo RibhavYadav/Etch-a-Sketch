@@ -1,8 +1,16 @@
-const canvas = document.querySelector('.canvas');
-let numBoxes = 16;
+// Get the grid size from the slider
+let slider = document.getElementById("slider");
+let boxesPerSide = document.querySelector('.grid');
+boxesPerSide.textContent = slider.value;
+slider.addEventListener('input', (e) => {
+    let valuePercentage = (slider.value / slider.max) * 100;
+    slider.style.background = `linear-gradient(to right, black ${valuePercentage}%, #f5f5f5 ${valuePercentage}%)`;
+    boxesPerSide.textContent = `${e.target.value} x ${e.target.value}`;
+})
 
 // Add 16x16 boxes to the canvas
-for (let i = 0; i < numBoxes * numBoxes; i++) {
+const canvas = document.querySelector('.canvas');
+for (let i = 0; i < boxesPerSide * boxesPerSide; i++) {
     const div = document.createElement('div');
     div.classList.add('box');
     canvas.appendChild(div);
