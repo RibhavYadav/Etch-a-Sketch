@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -7,45 +8,52 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Inter, "Helvetica Neue", sans-serif;
+    background-color: #ededed;
 }
 
 /*Container*/
 .container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    width: 40%;
+    gap: 100px;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
 /*Buttons*/
 button {
-    height: 25px;
-    width: 100px;
+    height: 35px;
+    width: 200px;
     border-radius: 5px;
-    border: 2px solid deepskyblue;
+    border: 2px solid black;
     background-color: whitesmoke;
+    text-align: center;
     font-size: 15px;
-    display: flex;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.06);
+    transition: 200ms;
 }
 
 button:active {
-    transform: scale(0.9);
     background-color: lightgray;
 }
 
-/* Canvas and Boxes*/
+/* Canvas and Boxes */
 .canvas {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    height: 256px;
-    width: 256px;
+    width: 500px;
+    height: 500px;
     border-radius: 2px;
     border: 3px solid black;
+    background-color: white;
 }
 
 .box {
-    height: 16px;
-    width: 16px;
-    background: whitesmoke;
+    flex: 0 0 calc(100% / 16);
+    aspect-ratio: 1;
 }
