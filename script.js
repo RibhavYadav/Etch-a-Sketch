@@ -5,7 +5,7 @@ value.textContent = slider.value;
 
 function calcSliderValue() {
     let valuePercentage = (slider.value / slider.max) * (100);
-    slider.style.background = `linear-gradient(to right, black ${valuePercentage}%, #f5f5f5 ${valuePercentage}%)`;
+    slider.style.background = `linear-gradient(to right, #520000 ${valuePercentage}%, #f5f5f5 ${valuePercentage}%)`;
 }
 
 // Get initial slider background at start
@@ -45,11 +45,25 @@ updateGridButton.addEventListener("click", () => {
 
 // Add event listeners to color the boxes
 let isDrawing = false;
-let randomColor = false;
+let isRandom = false;
+
+function getRandomColor() {
+    let letters = "0123456789abcdef";
+    let colour = "#";
+    for (let i = 0; i < 6; i++) {
+        colour += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return colour;
+}
+
 function addDrawingEventListeners() {
     function colorBox(e) {
         if (isDrawing && e.target.classList.contains('box')) {
-            e.target.style.backgroundColor = 'blue';
+            if (isRandom) {
+                e.target.style.backgroundColor = getRandomColor();
+            } else {
+                e.target.style.backgroundColor = 'blue';
+            }
         }
     }
 
@@ -74,3 +88,15 @@ resetButton.addEventListener('click', () => {
         box.style.backgroundColor = "white";
     });
 });
+
+// Randomize colour
+const randomizeButton = document.getElementById("random-colour");
+const randomIndicator = document.querySelector(".random .checked")
+randomizeButton.addEventListener("click", () => {
+    isRandom = !isRandom;
+    if (isRandom === true) {
+        randomIndicator.style.backgroundColor = `#520000`;
+    } else {
+        randomIndicator.style.backgroundColor = `#f5f5f5`;
+    }
+})
